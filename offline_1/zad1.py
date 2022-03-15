@@ -1,17 +1,17 @@
 # Jakub Pisarek
 # 
 # Rozwiązanie jest hybrydowe, wykorzystuje trzy różne algorytmy w zależności od
-# rzędu wielkości parametru k. Gdy:
+# rzędu wielkości parametru k<=n. Gdy:
 #    k=1          Wykonuje pojedyncze przejście algorytmu sortowania bąbelkowego
 #                 (bubblesort), co jest wystarczające do posortowania listy.
 #                     Złożoność czasowa: O(n), pamięciowa: O(1);
-#    1<k<1000     Sortuje listę algorytmem sortowania kopcowego (heapsort),
+#    1<k<256      Sortuje listę algorytmem sortowania kopcowego (heapsort),
 #                 z użyciem dodatkowej tablicy o rozmiarze k jako kopca,
 #                 do którego wkłada k pierwszych wartości, a następnie wykonuje
 #                 operację wstawienia-wyjęcia (insert-extract) dla wszystkich 
 #                 pozostałych elementów listy, co pozwala na jej posortowanie.
 #                     Złożoność czasowa: O(n log k), pamięciowa: O(k);
-#    1000<=k      Sortuje listę algorytmem sortowania przez scalanie (mergesort)
+#    256<=k       Sortuje listę algorytmem sortowania przez scalanie (mergesort)
 #                     Złożoność czasowa: O(n log n), pamięciowa: O(1).
 # 
 # W kilku miejscach programu występują te same fragmenty kodu. Nie zostały one
@@ -215,19 +215,21 @@ def SortH(p,k):
 
     # List is at best 2-chaotic
     else:
-        # 1<k<1000 - apply k-heapsort (time compl.: O(n log k))
-        if k < 1000:
-            p = ll_k_hsort(p, k)
+        # Calculate length of list (necessary to avoid runtime errors with k>n)
+        s = p
+        n = 0
+        while p is not None:
+            n += 1
+            p = p.next
 
-        # 1000>=k  - apply mergesort (time compl.: O(n log n))
+        # 1<k<256, k<=n - apply k-heapsort (time compl.: O(n log k))
+        #       (256 was picked semi-randomly as around that point
+        #       k-heapsort starts to perform worse than mergesort)
+        if k <= n and k < 256:
+            p = ll_k_hsort(s, k)
+
+        # 256>=k or k>n - apply mergesort  (time compl.: O(n log n))
         else:
-            # Calculate length of list
-            s = p
-            n = 0
-            while p is not None:
-                n += 1
-                p = p.next
-
             p = ll_msort(s, n)
 
     # Return a pointer to the first node
