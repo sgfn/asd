@@ -109,15 +109,15 @@ def qsrt(TAB, left=0, right=None):
 
 
 if __name__ == '__main__':
-    q = int(input())
+    # q = int(input())
 
     inp = input().split()
     tab = [int(v) for v in inp]
     # print(mmd(tab))
 
-    # qsrt(tab)
-    # print_formatted(tab)
+    qsrt(tab)
+    print_formatted(tab)
 
-    for i in range(q):
-        # print(bin(tab, int(input())))
-        print(cat(tab, int(input())))
+    # for i in range(q):
+    #     print(bin(tab, int(input())))
+    #     print(cat(tab, int(input())))
