@@ -1,6 +1,8 @@
 # Zadanie offline 1
-Szablon rozwiązania: `zad1.py`
+**Szablon rozwiązania:** `zad1.py`
+
 ---
+
 Węzły jednokierunkowej listy odsyłaczowej reprezentowane są w postaci:
 ```
 class Node:
@@ -10,7 +12,8 @@ class Node:
 ```
 
 Niech *p* będzie wskaźnikiem na niepustą listę odsyłaczową zawierającą parami
-różne liczby rzeczywiste - *a~1~,a~2~,...,a~n~* (lista nie ma wartownika).
+różne liczby rzeczywiste - *a<sub>1</sub>,a<sub>2</sub>,...,a<sub>n</sub>*
+(lista nie ma wartownika).
 Mówimy, że lista jest *k*-chaotyczna, jeśli dla każdego elementu zachodzi, że po
 posortowaniu listy znalazłby się na pozycji różniącej się od bieżącej o najwyżej
 *k*. Tak więc 0-chaotyczna lista jest posortowana, przykładem 1-chaotycznej listy
