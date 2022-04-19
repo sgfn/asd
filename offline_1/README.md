@@ -12,7 +12,7 @@ class Node:
 ```
 
 Niech *p* będzie wskaźnikiem na niepustą listę odsyłaczową zawierającą parami
-różne liczby rzeczywiste - *a<sub>1</sub>,a<sub>2</sub>,...,a<sub>n</sub>*
+różne liczby rzeczywiste - *a*<sub>1</sub>,*a*<sub>2</sub>,...,*a<sub>n</sub>*
 (lista nie ma wartownika).
 Mówimy, że lista jest *k*-chaotyczna, jeśli dla każdego elementu zachodzi, że po
 posortowaniu listy znalazłby się na pozycji różniącej się od bieżącej o najwyżej
@@ -23,4 +23,4 @@ sortuje *k*-chaotyczną listę wskazywaną przez *p*. Funkcja powinna zwrócić
 wskazanie na posortowaną listę. Algorytm powinien być jak najszybszy oraz używać
 jak najmniej pamięci (w sensie asymptotycznym, mierzonym względem długości *n*
 listy oraz parametru *k*). Proszę skomentować jego złożoność czasową dla
-*k* = Θ(1), *k*=Θ(log *n*) oraz *k*=Θ(*n*).
+*k* = Θ(1), *k* = Θ(log *n*) oraz *k* = Θ(*n*).
